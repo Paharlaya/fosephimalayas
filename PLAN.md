@@ -42,11 +42,17 @@ forests, and contour-map cartography — not generic stock-NGO visuals.
 | Token | Hex | Use |
 | --- | --- | --- |
 | `--spruce` | `#16302A` | Primary dark / headers / footer |
+| `--fern` | `#3E8E5A` | **Living green** — nature accent, links, icons, eco highlights |
+| `--moss-tint` | `#E4EDE2` | Soft green wash for section backgrounds |
 | `--mist` | `#F2F4F0` | Page background (cool, **not** cream) |
-| `--rhododendron` | `#C0453A` | Accent — light red, CTAs, highlights |
+| `--rhododendron` | `#C0453A` | Accent — light red, CTAs, key highlights |
 | `--dawn` | `#E0A04D` | Secondary gold accent, used sparingly |
 | `--slate` | `#6B7E83` | Supporting / muted text, lines |
 | `--ink` | `#14201C` | Body text |
+
+**Green strategy:** deep `--spruce` grounds the brand (header/footer, ridgelines);
+`--fern` is the lively eco-green for links, icons, tags and "growth" moments;
+`--rhododendron` red stays the bold CTA accent so green and red don't compete.
 
 ### Typography (self-hosted)
 - **Display:** Fraunces — editorial serif with character, optical sizing.

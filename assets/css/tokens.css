@@ -1,0 +1,77 @@
+/* ============================================================
+   tokens.css — design tokens for "Altitude"
+   Palette, type scale, spacing, radii, shadows, motion.
+   ============================================================ */
+:root {
+  /* ---- Color: grounded in the Eastern Himalaya ---- */
+  --spruce:        #16302A;  /* primary dark — header, footer, ridgelines */
+  --spruce-700:    #1F4439;
+  --fern:          #3E8E5A;  /* living green — links, icons, eco accents */
+  --fern-600:      #347C4E;
+  --moss-tint:     #E4EDE2;  /* soft green section wash */
+  --mist:          #F2F4F0;  /* page background (cool, not cream) */
+  --mist-200:      #E8ECE6;
+  --rhododendron:  #C0453A;  /* bold accent — CTAs, key highlights */
+  --rhododendron-600:#A6392F;
+  --dawn:          #E0A04D;  /* gold accent, sparing */
+  --slate:         #6B7E83;  /* muted text, hairlines */
+  --ink:           #14201C;  /* body text */
+  --paper:         #FBFCFA;  /* card surface */
+
+  /* ---- Semantic ---- */
+  --bg:            var(--mist);
+  --surface:       var(--paper);
+  --text:          var(--ink);
+  --text-muted:    var(--slate);
+  --line:          color-mix(in srgb, var(--slate) 35%, transparent);
+  --accent:        var(--rhododendron);
+  --eco:           var(--fern);
+
+  /* ---- Typography ---- */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body:    "Hanken Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    "Spline Sans Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Fluid type scale (1.25 ratio, 320 → 1280px) */
+  --step--1: clamp(0.83rem, 0.78rem + 0.22vw, 0.94rem);
+  --step-0:  clamp(1.00rem, 0.93rem + 0.33vw, 1.18rem);
+  --step-1:  clamp(1.20rem, 1.08rem + 0.58vw, 1.55rem);
+  --step-2:  clamp(1.44rem, 1.25rem + 0.95vw, 2.05rem);
+  --step-3:  clamp(1.73rem, 1.43rem + 1.49vw, 2.70rem);
+  --step-4:  clamp(2.07rem, 1.62rem + 2.25vw, 3.55rem);
+  --step-5:  clamp(2.49rem, 1.81rem + 3.38vw, 4.70rem);
+  --step-6:  clamp(2.99rem, 1.98rem + 5.02vw, 6.20rem);
+
+  /* ---- Spacing scale ---- */
+  --space-2xs: 0.375rem;
+  --space-xs:  0.625rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 9rem;
+
+  /* ---- Layout ---- */
+  --container: 76rem;     /* ~1216px */
+  --container-narrow: 52rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  /* ---- Radii ---- */
+  --radius-sm: 6px;
+  --radius:    14px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* ---- Shadows (soft, mountain-mist) ---- */
+  --shadow-sm: 0 1px 2px rgba(20, 32, 28, 0.06);
+  --shadow:    0 10px 30px -12px rgba(20, 32, 28, 0.18);
+  --shadow-lg: 0 30px 60px -20px rgba(20, 32, 28, 0.28);
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 180ms;
+  --dur: 360ms;
+  --dur-slow: 700ms;
+}
