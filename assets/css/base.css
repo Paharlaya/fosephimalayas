@@ -48,16 +48,16 @@ strong { font-weight: 600; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--fern-600);
-  display: flex;            /* block-level so it can't exceed its parent width */
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.6em;
+  display: block;          /* normal text flow so long labels wrap word-by-word */
   max-width: 100%;
 }
-.eyebrow::before {
+.eyebrow::before {       /* leading hairline, inline so the text can wrap past it */
   content: "";
+  display: inline-block;
   width: 1.6em;
   height: 1px;
+  margin-right: 0.6em;
+  vertical-align: middle;
   background: currentColor;
   opacity: 0.6;
 }
