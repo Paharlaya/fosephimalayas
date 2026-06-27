@@ -475,6 +475,28 @@
 .gallery .span-2 .figure__frame { aspect-ratio: 16 / 9; }
 @media (max-width: 640px) { .gallery .span-2 { grid-column: span 1; } }
 
+/* Even 3-up field gallery: equal tiles, last (short) row centers */
+.gallery--field {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+}
+.gallery--field figure {
+  flex: 0 1 calc((100% - 2 * var(--space-md)) / 3);
+  max-width: calc((100% - 2 * var(--space-md)) / 3);
+}
+.gallery--field .figure__frame { aspect-ratio: 4 / 3; }
+@media (max-width: 860px) {
+  .gallery--field figure {
+    flex-basis: calc((100% - var(--space-md)) / 2);
+    max-width: calc((100% - var(--space-md)) / 2);
+  }
+}
+@media (max-width: 560px) {
+  .gallery--field figure { flex-basis: 100%; max-width: 100%; }
+}
+
 /* Full-width landscape band with overlaid caption */
 .landscape-band {
   position: relative;
