@@ -627,21 +627,49 @@
 .page-hero {
   position: relative;
   overflow: hidden;
-  min-height: clamp(360px, 40vw, 520px);
+  min-height: clamp(340px, 38vw, 500px);
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   background-color: var(--mist);
-  /* shared ridgeline illustration sits at the bottom; pale sky up top for text,
-     a gentle fade blends the foot of the artwork into the page */
+  /* Per-page photo behind a left-to-right mist scrim so the left-aligned
+     text stays readable; --ph-img / --ph-pos set per page. */
   background-image:
-    linear-gradient(180deg, rgba(242,244,240,0) 78%, var(--mist) 100%),
-    url("../img/subhero.jpg");
+    linear-gradient(96deg,
+      rgba(242,244,240,0.97) 0%,
+      rgba(242,244,240,0.90) 30%,
+      rgba(242,244,240,0.60) 50%,
+      rgba(242,244,240,0.20) 72%,
+      rgba(242,244,240,0) 90%),
+    var(--ph-img, none);
   background-size: cover, cover;
-  background-position: center top, center bottom;
+  background-position: center, var(--ph-pos, center);
   background-repeat: no-repeat;
-  padding-block: clamp(2.75rem, 7vw, var(--space-2xl)) clamp(3.5rem, 9vw, var(--space-3xl));
+  padding-block: clamp(2.5rem, 6vw, var(--space-2xl));
 }
-.page-hero__inner { position: relative; z-index: 2; min-width: 0; max-width: 50rem; }
+@media (max-width: 760px) {
+  .page-hero {
+    align-items: flex-start;
+    background-image:
+      linear-gradient(180deg,
+        rgba(242,244,240,0.98) 0%,
+        rgba(242,244,240,0.88) 34%,
+        rgba(242,244,240,0.50) 60%,
+        rgba(242,244,240,0.08) 82%,
+        rgba(242,244,240,0) 95%),
+      var(--ph-img, none);
+    background-position: center, var(--ph-pos, center);
+  }
+}
+.page-hero__inner { position: relative; z-index: 2; min-width: 0; max-width: 40rem; }
+
+/* Per-page header images (url resolved relative to this stylesheet) */
+.ph-about        { --ph-img: url("../img/about-hero.jpg");   --ph-pos: center 30%; }
+.ph-objectives   { --ph-img: url("../img/teamwork.jpg");     --ph-pos: center 40%; }
+.ph-programs     { --ph-img: url("../img/tea-garden.jpg");   --ph-pos: center 45%; }
+.ph-achievements { --ph-img: url("../img/achievements.jpg"); --ph-pos: center bottom; }
+.ph-get-involved { --ph-img: url("../img/get-involved.jpg"); --ph-pos: right center; }
+.ph-contact      { --ph-img: url("../img/contact-us.jpg");   --ph-pos: center 40%; }
+.ph-donate       { --ph-img: url("../img/donate-us.jpg");    --ph-pos: right center; }
 .page-hero h1 { font-size: var(--step-5); margin-top: var(--space-sm); }
 .page-hero .lead { margin-top: var(--space-md); max-width: 42rem; }
 .breadcrumb {
