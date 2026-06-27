@@ -635,11 +635,11 @@
      text stays readable; --ph-img / --ph-pos set per page. */
   background-image:
     linear-gradient(96deg,
-      rgba(242,244,240,0.97) 0%,
-      rgba(242,244,240,0.90) 30%,
-      rgba(242,244,240,0.60) 50%,
-      rgba(242,244,240,0.20) 72%,
-      rgba(242,244,240,0) 90%),
+      rgba(242,244,240,0.92) 0%,
+      rgba(242,244,240,0.78) 26%,
+      rgba(242,244,240,0.42) 46%,
+      rgba(242,244,240,0.12) 66%,
+      rgba(242,244,240,0) 84%),
     var(--ph-img, none);
   background-size: cover, cover;
   background-position: center, var(--ph-pos, center);
@@ -660,7 +660,9 @@
     background-position: center, var(--ph-pos, center);
   }
 }
-.page-hero__inner { position: relative; z-index: 2; min-width: 0; max-width: 40rem; }
+/* Full-width container (centered like the nav) so text starts at the same left
+   margin as the home hero; the text itself is constrained and left-aligned. */
+.page-hero__inner { position: relative; z-index: 2; min-width: 0; }
 
 /* Per-page header images (url resolved relative to this stylesheet) */
 .ph-about        { --ph-img: url("../img/about-hero.jpg");   --ph-pos: center 30%; }
@@ -670,8 +672,8 @@
 .ph-get-involved { --ph-img: url("../img/get-involved.jpg"); --ph-pos: right center; }
 .ph-contact      { --ph-img: url("../img/contact-us.jpg");   --ph-pos: center 40%; }
 .ph-donate       { --ph-img: url("../img/donate-us.jpg");    --ph-pos: right center; }
-.page-hero h1 { font-size: var(--step-5); margin-top: var(--space-sm); }
-.page-hero .lead { margin-top: var(--space-md); max-width: 42rem; }
+.page-hero h1 { font-size: var(--step-5); margin-top: 0; max-width: 20ch; }
+.page-hero .lead { margin-top: var(--space-md); max-width: 38rem; }
 .breadcrumb {
   font-family: var(--font-mono);
   font-size: 0.66rem;
