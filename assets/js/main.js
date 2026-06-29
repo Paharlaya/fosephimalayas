@@ -98,4 +98,50 @@
   /* ---- Footer year ---- */
   const yearEl = document.querySelector("[data-year]");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  /* ---- Contact form: submit via FormSubmit AJAX, stay on-brand ---- */
+  const cform = document.querySelector('form.form[action*="formsubmit.co"]');
+  if (cform) {
+    const ajaxURL = cform.getAttribute("action").replace("formsubmit.co/", "formsubmit.co/ajax/");
+    const btn = cform.querySelector('button[type="submit"]');
+    const note = document.createElement("p");
+    note.className = "form__note";
+    note.setAttribute("role", "status");
+    cform.appendChild(note);
+
+    cform.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (cform.querySelector('[name="_honey"]').value) return; // bot
+      const original = btn.innerHTML;
+      btn.disabled = true;
+      btn.textContent = "Sending…";
+      note.textContent = "";
+      note.classList.remove("is-error", "is-ok");
+
+      fetch(ajaxURL, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(cform),
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data.success === "true" || data.success === true) {
+            cform.reset();
+            note.textContent = "Thank you — your message is on its way. We'll get back to you soon.";
+            note.classList.add("is-ok");
+          } else {
+            note.textContent = data.message || "Something went wrong. Please email us directly.";
+            note.classList.add("is-error");
+          }
+        })
+        .catch(function () {
+          note.textContent = "Couldn't send right now. Please email fosepdarjeeling@gmail.com directly.";
+          note.classList.add("is-error");
+        })
+        .finally(function () {
+          btn.disabled = false;
+          btn.innerHTML = original;
+        });
+    });
+  }
 })();

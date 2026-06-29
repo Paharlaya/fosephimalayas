@@ -813,6 +813,17 @@
 }
 .field textarea { resize: vertical; min-height: 8rem; }
 
+.form__note {
+  margin-top: var(--space-xs);
+  font-size: var(--step--1);
+  font-weight: 500;
+  padding: 0.7em 1em;
+  border-radius: var(--radius-sm);
+}
+.form__note:empty { display: none; }
+.form__note.is-ok { color: var(--fern-600); background: var(--moss-tint); }
+.form__note.is-error { color: var(--rhododendron-600); background: color-mix(in srgb, var(--rhododendron) 12%, transparent); }
+
 /* ---------- Generic responsive helpers ---------- */
 .grid-2 {
   display: grid;
