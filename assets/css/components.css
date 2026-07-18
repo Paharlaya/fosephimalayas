@@ -148,7 +148,7 @@
 .nav.is-open .nav__toggle span::before { transform: rotate(45deg); }
 .nav.is-open .nav__toggle span::after  { transform: rotate(-45deg); }
 
-@media (max-width: 920px) {
+@media (max-width: 1024px) {
   .nav__toggle { display: inline-flex; }
   .nav__menu, .nav__actions {
     position: fixed;
@@ -693,7 +693,9 @@
 /* Busier images (planting photo, warm illustration) need a stronger left wash
    so the heading and intro don't get lost. */
 .page-hero.ph-objectives,
-.page-hero.ph-get-involved {
+.page-hero.ph-get-involved,
+.page-hero.ph-people,
+.page-hero.ph-news {
   background-image:
     linear-gradient(96deg,
       rgba(242,244,240,0.98) 0%,
@@ -706,6 +708,8 @@
 
 /* Per-page header images (url resolved relative to this stylesheet) */
 .ph-about        { --ph-img: url("../img/about-hero.jpg");   --ph-pos: center 30%; }
+.ph-people       { --ph-img: url("../img/fosep-team-photo.jpg"); --ph-pos: center 22%; }
+.ph-news         { --ph-img: url("../img/news-environment-day.jpg"); --ph-pos: center 30%; }
 .ph-objectives   { --ph-img: url("../img/teamwork.jpg");     --ph-pos: center 40%; }
 .ph-programs     { --ph-img: url("../img/tea-garden.jpg");   --ph-pos: center 45%; }
 .ph-achievements { --ph-img: url("../img/achievements.jpg"); --ph-pos: center bottom; }
@@ -863,6 +867,66 @@
 .form__note:empty { display: none; }
 .form__note.is-ok { color: var(--fern-600); background: var(--moss-tint); }
 .form__note.is-error { color: var(--rhododendron-600); background: color-mix(in srgb, var(--rhododendron) 12%, transparent); }
+
+/* ============================================================
+   News (FOSEP in the news)
+   ============================================================ */
+.news-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+.news-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.news-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: transparent; }
+.news-card__media { aspect-ratio: 16 / 9; overflow: hidden; background: var(--mist-200); }
+.news-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-slow) var(--ease); }
+.news-card:hover .news-card__media img { transform: scale(1.05); }
+.news-card__body { padding: var(--space-md); display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+.news-card__date {
+  font-family: var(--font-mono);
+  font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--fern-600);
+  display: flex; align-items: center; gap: 0.6em;
+}
+.news-card h3 { font-size: var(--step-1); }
+.news-card p { color: var(--text-muted); font-size: var(--step--1); }
+
+/* ============================================================
+   People
+   ============================================================ */
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+.person { display: flex; flex-direction: column; }
+.person__photo {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--moss-tint);
+  display: grid; place-items: center;
+}
+.person__photo img { width: 100%; height: 100%; object-fit: cover; }
+.person__photo .person__placeholder { color: var(--fern-600); opacity: 0.5; }
+.person__photo .person__placeholder svg { width: 48px; height: 48px; }
+.person h3 { font-size: var(--step-1); margin-top: var(--space-sm); }
+.person__role {
+  font-family: var(--font-mono);
+  font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--fern-600); margin-top: 0.3rem;
+}
+.person p { color: var(--text-muted); font-size: var(--step--1); margin-top: 0.5rem; }
 
 /* ---------- Generic responsive helpers ---------- */
 .grid-2 {
