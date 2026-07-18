@@ -148,31 +148,45 @@
 .nav.is-open .nav__toggle span::before { transform: rotate(45deg); }
 .nav.is-open .nav__toggle span::after  { transform: rotate(-45deg); }
 
+/* Mobile CTA lives inside the menu panel; hidden on desktop */
+.nav__mobile-cta { display: none; }
+
 @media (max-width: 1024px) {
   .nav__toggle { display: inline-flex; }
-  .nav__menu, .nav__actions {
+  .nav__actions { display: none; }          /* desktop button hidden on mobile */
+
+  /* One clean dropdown panel holding all links + the Donate CTA */
+  .nav__menu {
     position: fixed;
     inset: 4.75rem 0 auto 0;
+    max-height: calc(100dvh - 4.75rem);
+    overflow-y: auto;
     flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-md);
+    align-items: stretch;
+    gap: 0;
     background: var(--mist);
-    padding: var(--space-lg) var(--gutter);
+    padding: var(--space-xs) var(--gutter) var(--space-xl);
     border-bottom: 1px solid var(--line);
-    transform: translateY(-12px);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-14px);
     opacity: 0;
     pointer-events: none;
     transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
   }
-  .nav__actions { inset-block-start: auto; border-bottom: none; padding-top: 0; }
-  .nav.is-open .nav__menu,
-  .nav.is-open .nav__actions {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
+  .nav.is-open .nav__menu { transform: none; opacity: 1; pointer-events: auto; }
+
+  .nav__menu > li { width: 100%; }
+  .nav__link {
+    display: block;
+    width: 100%;
+    font-size: var(--step-1);
+    padding-block: 0.9rem;
+    border-bottom: 1px solid var(--line);
   }
-  .nav__menu { box-shadow: var(--shadow); }
-  .nav__link { font-size: var(--step-1); }
+  .nav__link::after { display: none; }       /* drop the desktop underline anim */
+
+  .nav__mobile-cta { display: block; margin-top: var(--space-md); }
+  .nav__mobile-cta .btn { width: 100%; justify-content: center; }
 }
 
 /* ---------- Hero with parallax ridgelines ---------- */
