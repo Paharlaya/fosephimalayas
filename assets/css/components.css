@@ -155,8 +155,12 @@
   .nav__toggle { display: inline-flex; }
   .nav__actions { display: none; }          /* desktop button hidden on mobile */
 
-  /* One clean dropdown panel holding all links + the Donate CTA */
-  .nav__menu {
+  /* a bit more breathing room on the left/right of the mobile nav bar */
+  .site-header .container { padding-inline: calc(var(--gutter) + 0.6rem); }
+
+  /* One clean dropdown panel holding all links + the Donate CTA.
+     Double class (.nav__menu.nav__menu) outranks reset's ul[role=list]{padding:0}. */
+  .nav__menu.nav__menu {
     position: fixed;
     inset: 4.75rem 0 auto 0;
     max-height: calc(100dvh - 4.75rem);
@@ -165,7 +169,7 @@
     align-items: stretch;
     gap: 0;
     background: var(--mist);
-    padding: var(--space-xs) var(--gutter) var(--space-xl);
+    padding: var(--space-xs) calc(var(--gutter) + 0.6rem) var(--space-xl);
     border-bottom: 1px solid var(--line);
     box-shadow: var(--shadow-lg);
     transform: translateY(-14px);
