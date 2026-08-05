@@ -713,7 +713,8 @@
 .page-hero.ph-objectives,
 .page-hero.ph-get-involved,
 .page-hero.ph-people,
-.page-hero.ph-news {
+.page-hero.ph-news,
+.page-hero.ph-projects {
   background-image:
     linear-gradient(96deg,
       rgba(242,244,240,0.98) 0%,
@@ -728,6 +729,7 @@
 .ph-about        { --ph-img: url("../img/about-hero.jpg");   --ph-pos: center 30%; }
 .ph-people       { --ph-img: url("../img/fosep-team-photo.jpg"); --ph-pos: center 22%; }
 .ph-news         { --ph-img: url("../img/news-environment-day.jpg"); --ph-pos: center 30%; }
+.ph-projects     { --ph-img: url("../img/green-forest.jpg"); --ph-pos: center 45%; }
 .ph-objectives   { --ph-img: url("../img/teamwork.jpg");     --ph-pos: center 40%; }
 .ph-programs     { --ph-img: url("../img/tea-garden.jpg");   --ph-pos: center 45%; }
 .ph-achievements { --ph-img: url("../img/achievements.jpg"); --ph-pos: center bottom; }
@@ -935,7 +937,7 @@
   background: #E5F0FB;            /* matches the avatar's light-blue background */
   display: grid; place-items: center;
 }
-.person__photo img { width: 100%; height: 100%; object-fit: cover; }
+.person__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 .person__photo .person__placeholder { color: var(--fern-600); opacity: 0.5; }
 .person__photo .person__placeholder svg { width: 48px; height: 48px; }
 .person h3 { font-size: var(--step-1); margin-top: var(--space-sm); }
@@ -945,6 +947,50 @@
   color: var(--fern-600); margin-top: 0.3rem;
 }
 .person p { color: var(--text-muted); font-size: var(--step--1); margin-top: 0.5rem; }
+
+/* ============================================================
+   Projects
+   ============================================================ */
+.proj-featured { display: grid; gap: var(--space-lg); margin-top: var(--space-xl); }
+.proj {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--fern);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: var(--space-lg);
+}
+.proj__year {
+  font-family: var(--font-mono);
+  font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--fern-600);
+  display: inline-flex; align-items: center; gap: 0.6em;
+}
+.proj__tag {
+  margin-left: 0.4em; padding: 0.1em 0.6em;
+  border-radius: var(--radius-pill);
+  background: var(--moss-tint); color: var(--fern-600);
+}
+.proj h3 { font-size: var(--step-2); margin-top: 0.5rem; }
+.proj .facts { margin-top: var(--space-md); }
+.proj__about { margin-top: var(--space-md); color: color-mix(in srgb, var(--ink) 86%, transparent); }
+
+/* Legacy project rows (International / National) */
+.proj-rows { margin-top: var(--space-lg); display: grid; }
+.proj-row {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: var(--space-md);
+  padding-block: var(--space-md);
+  border-top: 1px solid var(--line);
+  align-items: baseline;
+}
+.proj-row:last-child { border-bottom: 1px solid var(--line); }
+.proj-row__year { font-family: var(--font-mono); font-size: var(--step--1); color: var(--fern-600); letter-spacing: 0.04em; }
+.proj-row__title { font-weight: 600; color: var(--spruce); }
+.proj-row__partner { display: block; margin-top: 0.25rem; font-size: var(--step--1); color: var(--text-muted); }
+@media (max-width: 560px) {
+  .proj-row { grid-template-columns: 1fr; gap: 0.25rem; }
+}
 
 /* ---------- Generic responsive helpers ---------- */
 .grid-2 {
@@ -1055,6 +1101,15 @@
   border-radius: var(--radius-sm);
 }
 .qr-card__note { margin-top: var(--space-md); font-size: var(--step--1); color: var(--text-muted); }
+.give-icon {
+  display: grid; place-items: center;
+  width: 72px; height: 72px;
+  margin: var(--space-md) auto 0;
+  border-radius: 50%;
+  background: var(--moss-tint);
+  color: var(--fern-600);
+}
+.give-icon svg { width: 34px; height: 34px; }
 .qr-card__handle {
   margin-top: 0.4rem;
   font-family: var(--font-mono);
