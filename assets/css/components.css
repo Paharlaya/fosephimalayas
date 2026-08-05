@@ -459,6 +459,33 @@
   color: var(--text-muted);
   letter-spacing: 0.02em;
 }
+
+/* Obvious "download the PDF" pill link */
+.pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 0.7rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--rhododendron-600);
+  background: color-mix(in srgb, var(--rhododendron) 10%, transparent);
+  padding: 0.55em 1em;
+  border-radius: var(--radius-pill);
+  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--rhododendron) 45%, transparent);
+  transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease),
+              box-shadow var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.pdf-link:hover {
+  background: var(--rhododendron);
+  color: #fff;
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+.pdf-link svg { width: 1.05em; height: 1.05em; flex: none; }
+.pdf-link .arrow { transition: transform var(--dur-fast) var(--ease); }
+.pdf-link:hover .arrow { transform: translateX(3px); }
 .figure--wide .figure__frame { aspect-ratio: 16 / 7; }
 .figure--photo .figure__frame { aspect-ratio: 3 / 2; }
 
