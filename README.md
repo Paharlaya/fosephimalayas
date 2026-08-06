@@ -24,3 +24,5 @@ deploy steps.
 
 GitHub Pages from the `main` branch (root). A custom domain is added later via a
 `CNAME` file + DNS. See `PLAN.md` §8.
+
+<!-- deploy check: 2026-08-06T13:27:05Z -->
